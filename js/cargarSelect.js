@@ -1,18 +1,31 @@
-const menu = document.getElementById('menu');
-
-const obtenerCategorias = async () => {
-    try {
-        const res = await fetch('http://127.0.0.1:3000');
-        const data = await res.json();
-        data.forEach(categoria => {
-            menu.innerHTML += `
-                <option value=${categoria.id}>${categoria.name}</option>
+$(document).ready(function () {
+    const menu = document.getElementById('menu');
+    const filtro = document.getElementById('filtro');
+    $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:3000",
+        data: "data",
+        dataType: "json",
+        beforeSend: () => {
+            filtro.innerHTML = `
+            <img src="./img/loading.gif" style="height: 20px; margin-bottom: 4px;" />
             `
-        });
-    } catch (error) {
-        console.error(error);
-    }
-}
+            filtro.disabled = true
+        },
+        success: function (response) {
+            response.forEach(categoria => {
+                menu.innerHTML += `<option value=${categoria.id}>${categoria.name}</option>`
+            })
+            filtro.innerHTML = `Filtrar`
+            filtro.disabled = false
+        },
+        fail: (err) => {
+            console.error(err);
+        }
+    });
+});
 
-obtenerCategorias();
+
+
+
 
