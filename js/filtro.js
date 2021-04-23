@@ -23,7 +23,7 @@ $(document).ready(function () {
                         <hr />
                         <div class="row">
                             <div class="col justify-content-center">
-                            <a href="#" class="btn btn-outline-success">${formatterPrecio(data.price)}</a>
+                            <a href="#" class="btn btn-outline-success">${data.price}</a>
                             </div>
                             <div class="col justify-content-center">
                                 <button class="btn btn-outline-primary">
