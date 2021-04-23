@@ -14,7 +14,7 @@ $(document).ready(function () {
         },
         success: function (response) {
             response.forEach(categoria => {
-                menu.innerHTML += `<option value=${categoria.id}>${categoria.name}</option>`
+                menu.innerHTML += `<option value=${categoria.id}>${categoria.name.toUpperCase()}</option>`
             })
             filtro.innerHTML = `Filtrar`
             filtro.disabled = false

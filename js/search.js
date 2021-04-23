@@ -1,6 +1,7 @@
 const url = 'http://localhost:3000/product/byName/';
 const buscador = document.getElementById('buscador');
 const container = document.getElementById('container-card');
+const resultado = document.getElementById('resultado-busqueda');
 
 $(document).ready(function () {
     var validacion = false;
@@ -30,10 +31,12 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     container.innerHTML = ``
-                    if (response.length === 0) {
+                    console.log(response)
+                    if (response === 'no hay registros') {
                         container.innerHTML = `<h3 class="text-center" style="margin-top: 10%;" >No hay registro con esta busqueda</h3>`
                     } else {
                         container.innerHTML = ``
+                        resultado.innerHTML = `<h5 class="text-center">Resultado para: "${buscador.value}"</h5>`
                         response.forEach(data => {
                             container.innerHTML += `
                             <div class="card col-xl-4" style="height: 500px; width: 400px">
@@ -43,7 +46,8 @@ $(document).ready(function () {
                                 <hr />
                                 <div class="row">
                                     <div class="col justify-content-center">
-                                    <a href="#" class="btn btn-outline-success">${data.price}</a>
+                                        <a class="btn btn-outline-success">${formatterPrecio(data.price)}</a>
+                                        <a class="btn btn-outline-danger">${data.discount}%dto</a>
                                     </div>
                                     <div class="col justify-content-center">
                                             <button class="btn btn-outline-primary">
@@ -61,6 +65,7 @@ $(document).ready(function () {
                             `
                         })
                     }
+                    
                 }
             });
         } else {
