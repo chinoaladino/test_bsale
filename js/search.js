@@ -31,7 +31,6 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     container.innerHTML = ``
-                    console.log(response)
                     if (response === 'no hay registros') {
                         container.innerHTML = `<h3 class="text-center" style="margin-top: 10%;" >No hay registro con esta busqueda</h3>`
                     } else {
@@ -47,7 +46,7 @@ $(document).ready(function () {
                                 <div class="row">
                                     <div class="col justify-content-center">
                                         <a class="btn btn-outline-success">${formatterPrecio(data.price)}</a>
-                                        <a class="btn btn-outline-danger">${data.discount}%dto</a>
+                                        <a class="btn btn-danger">${data.discount}%</a>
                                     </div>
                                     <div class="col justify-content-center">
                                             <button class="btn btn-outline-primary">
