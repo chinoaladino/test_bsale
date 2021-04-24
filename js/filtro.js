@@ -4,7 +4,7 @@ $(document).ready(function () {
         var val = $('#menu').val();
         $.ajax({
             type: "GET",
-            url: `http://127.0.0.1:3000/product/category/${val}`,
+            url: `https://bsale-test-alponce.herokuapp.com/product/category/${val}`,
             data: "data",
             dataType: "json",
             beforeSend: () => {

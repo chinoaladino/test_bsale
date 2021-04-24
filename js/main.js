@@ -2,7 +2,7 @@ $(document).ready(function () {
     const container = document.getElementById('container-card');
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:3000/product",
+        url: "https://bsale-test-alponce.herokuapp.com/product",
         data: "data",
         dataType: "json",
         beforeSend: () => {

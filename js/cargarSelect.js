@@ -3,7 +3,7 @@ $(document).ready(function () {
     const filtro = document.getElementById('filtro');
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:3000",
+        url: "https://bsale-test-alponce.herokuapp.com/",
         data: "data",
         dataType: "json",
         beforeSend: () => {

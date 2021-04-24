@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/product/byName/';
+const url = 'https://bsale-test-alponce.herokuapp.com/product/byName/';
 const buscador = document.getElementById('buscador');
 const container = document.getElementById('container-card');
 const resultado = document.getElementById('resultado-busqueda');
