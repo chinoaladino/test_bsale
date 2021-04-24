@@ -31,8 +31,9 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     container.innerHTML = ``
-                    if (response === 'no hay registros') {
-                        container.innerHTML = `<h3 class="text-center" style="margin-top: 10%;" >No hay registro con esta busqueda</h3>`
+                    console.log(response)
+                    if (response.error) {
+                        container.innerHTML = `<h3 class="text-center" style="margin-top: 10%;" >${response.error}</h3>`
                     } else {
                         container.innerHTML = ``
                         resultado.innerHTML = `<h5 class="text-center">Resultado para: "${buscador.value}"</h5>`

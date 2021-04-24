@@ -9,7 +9,7 @@ $(document).ready(function () {
             container.innerHTML = `<img src="./img/loading.gif" style="height: 200px; width: 200px; margin-top: 10%;"/>`
         },
         success: (response) => {
-            container.innerHTML = ``;   
+            container.innerHTML = ``;
             response.forEach(data => {
                 container.innerHTML += `
                 <div class="card col-xl-4" style="height: 500px; width: 400px">
